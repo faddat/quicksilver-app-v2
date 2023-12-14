@@ -1,18 +1,22 @@
 import { useQuery } from '@tanstack/react-query';
-import { quicksilver } from 'quicksilverjs';
+import { cosmos } from 'interchain-query';
 
 import { useQueryHooks } from './useQueryHooks';
 
-const createRPCQueryClient = quicksilver.ClientFactory.createRPCQueryClient;
+const createRPCQueryClient =
+  cosmos.ClientFactory.createRPCQueryClient;
 
-export const useRpcQueryClient = (chainName: string) => {
-  const { rpcEndpoint } = useQueryHooks(chainName);
+export const useRpcQueryClient = (
+  chainName: string,
+) => {
+  const { rpcEndpoint } =
+    useQueryHooks(chainName);
 
   const rpcQueryClientQuery = useQuery({
     queryKey: ['rpcQueryClient', rpcEndpoint],
     queryFn: () =>
       createRPCQueryClient({
-        rpcEndpoint: rpcEndpoint?.toString() || '',
+        rpcEndpoint: rpcEndpoint || '',
       }),
     enabled: !!rpcEndpoint,
     staleTime: Infinity,

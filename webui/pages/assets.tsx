@@ -1,4 +1,4 @@
-import { Box, Container } from '@chakra-ui/react';
+import { Box, Button, ButtonGroup, Container, Flex, HStack, Text } from '@chakra-ui/react';
 import Head from 'next/head';
 
 import { Header } from '../components/react/header';
@@ -7,29 +7,88 @@ import { SideHeader } from '../components/react/sideHeader';
 export default function Home() {
   return (
     <>
-      <Box
-        w="100vw"
-        h="100vh"
-        bgImage="url('https://s3-alpha-sig.figma.com/img/555d/db64/f5bf65e93a15603069e8e865d5f6d60d?Expires=1694995200&Signature=fYfmbqDdOGRYtSeEsOkavPhhkaNQK1UFFfICaUaM1k9OVEpACsoWOcK2upjRW7Tfs-pPTJBuQuvcmF9gBjosh5-Al2xTWHYzDlR~CYJNzsXcseIEnVf7H8lCdJqhZY-T0r~lmbJK5-CmbulWfOaubc-wyY3C-oM3b1RanGV1TqmPZto5bbHwf56jDYqK86HedVMXbUCOlzkeBw2R93AkmNDMOdDbKa9rIKqxil64DuQQAfIFxWm1Rc69Jc1-4K-bunsS~kfz8bSET6TIGmR15nCo~ibfISG72YYKAa7zz6XqUY6GKmmG-Yhj9XyyYb7Jy02r5axNei3DRD78SBe~6w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4')"
-        bgSize="fit"
-        bgPosition="right center"
-        bgAttachment="fixed"
-        bgRepeat="no-repeat"
-        bgColor="#000000"
-      >
-        <Header chainName="quicksilver" />
-        <SideHeader />
-        <Container justifyContent="center" alignItems="center" maxW="5xl">
-          <Head>
-            <title>Quick Silver</title>
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1.0"
-            />
-            <link rel="icon" href="/img/favicon.png" />
-          </Head>
-        </Container>
-      </Box>
+      <Container justifyContent="center" alignItems="center" maxW="5xl">
+        <Head>
+          <title>Quick Silver</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <link rel="icon" href="/quicksilver-app-v2/img/favicon.png" />
+        </Head>
+        <Flex flexDir={'row'} alignItems="center" justifyContent={'space-between'} gap="4">
+          {/* Quick box */}
+          <Flex
+            position="relative"
+            backdropFilter="blur(50px)"
+            bgColor="rgba(255,255,255,0.1)" // Slightly more visible background
+            borderRadius="lg" // Using standard size
+            p={6} // Slightly more padding
+            w="sm" // A bit wider for better layout
+            h="sm" // A bit taller for better layout
+            flexDir="column"
+            justifyContent="space-around" // Better distribution of space
+            alignItems="center"
+          >
+            <Flex
+              justifyContent="center"
+              alignItems="center"
+              flexDir="row"
+              gap={3} // Slightly more gap for visual spacing
+            >
+              <Box minW="10px" minH="10px" borderRadius="full" bgColor="grey" />
+              <Text fontSize="2xl" fontWeight="bold" textAlign="center">
+                QCK
+              </Text>
+            </Flex>
+            <Flex direction="column" align="stretch" gap={2}>
+              <HStack justifyContent="center">
+                <Text fontSize="md" fontWeight="normal">
+                  Staking APY:
+                </Text>
+                <Text fontSize="md" fontWeight="semibold">
+                  12.37%
+                </Text>
+              </HStack>
+              <HStack justifyContent="center">
+                <Text fontSize="md" fontWeight="normal">
+                  Quicksilver Balance:
+                </Text>
+                <Text fontSize="md" fontWeight="semibold">
+                  10.123456
+                </Text>
+              </HStack>
+            </Flex>
+            <ButtonGroup
+              spacing={3} // Consistent spacing
+            >
+              <Button size="md" w="full">
+                Withdraw
+              </Button>
+              <Button size="md" w="full">
+                Deposit
+              </Button>
+            </ButtonGroup>
+          </Flex>
+          <Flex
+            alignContent={'center'}
+            position="relative"
+            backdropFilter="blur(50px)"
+            bgColor="rgba(255,255,255,0.1)"
+            borderRadius="10px"
+            p={5}
+            w="xs"
+            h="xs"
+          ></Flex>
+          <Flex
+            alignContent={'center'}
+            position="relative"
+            backdropFilter="blur(50px)"
+            bgColor="rgba(255,255,255,0.1)"
+            borderRadius="10px"
+            p={5}
+            w="xs"
+            h="xs"
+          ></Flex>
+        </Flex>
+      </Container>
     </>
   );
 }

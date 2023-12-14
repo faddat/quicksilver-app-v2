@@ -7,8 +7,8 @@ import {
   useState,
 } from 'react';
 
-import { useQueryHooks } from './useQueryHooks';
-import { useRpcQueryClient } from './useRpcQueryClient';
+import { useQueryHooks } from './useQueryHooks2';
+import { useRpcQueryClient } from './useRpcQueryClient2';
 import {
   parseProposals,
   parseQuorum,

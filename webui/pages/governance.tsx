@@ -2,8 +2,6 @@ import { Box, Container, Text } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 
-import { Header } from '@/components';
-import { SideHeader } from '@/components';
 import { VotingSection } from '@/components';
 
 const DynamicVotingSection = dynamic(() => Promise.resolve(VotingSection), {
@@ -25,15 +23,10 @@ export default function Home() {
         bgRepeat="no-repeat"
         bgColor="#000000"
       >
-        <Header chainName="quicksilver" />
-        <SideHeader />
         <Container justifyContent="center" alignItems="center" maxW="5xl">
           <Head>
             <title>Governance</title>
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1.0"
-            />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <link rel="icon" href="/img/favicon.png" />
           </Head>
           <Box maxHeight="3xl" width="100%" padding={2}>
